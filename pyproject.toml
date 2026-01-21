@@ -1,0 +1,32 @@
+[build-system]
+requires = ["maturin>=1.0,<2.0"]
+build-backend = "maturin"
+
+[project]
+name = "ag-backtester"
+version = "0.1.0"
+description = "Lightweight backtesting engine with C kernel and Python API"
+requires-python = ">=3.8"
+dependencies = [
+    "numpy>=1.20",
+    "pandas>=1.3",
+    "polars>=0.20",
+    "pyarrow>=10.0",
+    "matplotlib>=3.4",
+    "requests>=2.25",
+    "aiohttp>=3.9",
+    "aiofiles>=23.0",
+]
+
+[tool.maturin]
+python-source = "python"
+module-name = "ag_backtester._ag_core"
+features = ["pyo3/extension-module"]
+manifest-path = "crates/ag-core/Cargo.toml"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "black>=22.0",
+    "ruff>=0.1",
+]

@@ -1,4 +1,3 @@
-# ag-kernel
 # ag-backtester v0
 
 Lightweight, deterministic backtesting engine with C kernel, Rust bridge, and Python API.
